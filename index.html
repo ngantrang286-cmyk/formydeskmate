@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MY DESKMATE 💌</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Patrick Hand',cursive;
+}
+
+body{
+    background:linear-gradient(to bottom,#ffd6e7,#fff0f6);
+    overflow:hidden;
+    height:100vh;
+}
+
+/* Màn hình mở đầu */
+
+#startScreen{
+    position:fixed;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    z-index:100;
+}
+
+#startScreen h1{
+    color:#ff4f8b;
+    text-align:center;
+}
+
+.start-btn{
+    background:#ff6fa8;
+    color:white;
+    border:none;
+    padding:15px 35px;
+    border-radius:30px;
+    font-size:1.2rem;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.start-btn:hover{
+    transform:scale(1.1);
+}
+
+/* Cuộn phim */
+
+#filmContainer{
+    display:none;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    position:relative;
+}
+
+.film{
+    position:absolute;
+    width:100%;
+    animation:rollFilm 12s linear forwards;
+}
+
+.frame{
+    width:320px;
+    margin:80px auto;
+    padding:12px;
+    background:#111;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,.3);
+}
+
+.frame img{
+    width:100%;
+    height:400px;
+    object-fit:cover;
+    border-radius:8px;
+    display:block;
+}
+
+@keyframes rollFilm{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-1400px);
+    }
+}
+
+/* Phong thư */
+
+#envelopeSection{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:50;
+}
+
+.envelope{
+    font-size:120px;
+    cursor:pointer;
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+.note{
+    margin-top:10px;
+    color:#ff4f8b;
+    font-size:1.3rem;
+}
+
+/* Lá thư */
+
+#letter{
+    display:none;
+    position:relative;
+    margin:50px auto
+    transform:translate(-50%,-50%);
+    width:85%;
+    max-width:700px;
+    max-height:80vh;
+    overflow-y:auto;
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    z-index:200;
+    animation:openLetter 1s ease;
+}
+
+@keyframes openLetter{
+    from{
+        opacity:0;
+        transform:translate(-50%,-40%) scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:translate(-50%,-50%) scale(1);
+    }
+}
+
+#letter h2{
+    color:#ff4f8b;
+    margin-bottom:15px;
+}
+
+#letter p{
+    line-height:1.8;
+    font-size:1.1rem;
+    color:#444;
+}
+
+/* Trái tim */
+
+.heart{
+    position:fixed;
+    color:#ff4f8b;
+    font-size:25px;
+    animation:fly 4s linear forwards;
+    pointer-events:none;
+}
+
+@keyframes fly{
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-400px);
+        opacity:0;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div id="startScreen">
+    <h1>Nhân dịp hội ngộ lần đầu ở Hà Nội</h1>
+    <button class="start-btn" onclick="startMovie()">Bắt đầu</button>
+</div>
+
+<div id="filmContainer">
+    <div class="film">
+
+        <div class="frame">
+            <img src="anh1.jpg" alt="">
+        </div>
+
+        <div class="frame">
+            <img src="anh2.jpg" alt="">
+        </div>
+
+        <div class="frame">
+            <img src="anh3.jpg" alt="">
+        </div>
+
+    </div>
+</div>
+
+<div id="envelopeSection">
+    <div class="envelope" onclick="openLetter()">💌</div>
+    <div class="note">Nhấn để mở thư</div>
+</div>
+
+<div id="letter">
+    <h2>Gửi Thư - người bạn cùng bàn suốt hơn 700 ngày ở Chuyên Thái Bình của Ngân 💖</h2>
+
+    <p>
+       Đừng xúc động quá đấyyyy nhé !!
+        <br><br>
+
+        Hà Nội đợt này bắt đầu lạnh dần rồi, cô gái nhớ ăn uống cho đầy đủ, mặc quần áo ấm áp vào    chứ gió Hà Nội mạnh lắm, chẳng may lại bị cuốn bay đi đâu thì dở đấy. Thực ra chẳng cần trời trở rét thì tôi mới nhớ bạn mà thi thoảng nhìn lên trời, nhìn vào một góc lớp ở HNUE đều cảm thấy nhớ Thư và 3 đứa kia lắm. 
+
+Chúng mình đã làm bạn từ đầu lớp 10 rồi nhỉ? Lúc đấy Thư ngồi ngay sau Ngân và cũng chỉ là chơi xã giao. Mãi đến ngày 08/07/2024, chúng mình mới trở thành bạn cùng bàn của nhau, Ngân vẫn nhớ những ngày đầu ấy muốn chuyển chỗ thế nào vì chưa tìm được cảm giác thân quen. Nhưng đúng là sự tình cờ có sắp đặt ấy lại đưa Ngân có cơ hội làm quen và thân thiết với một cô gái đáng yêu như Thư. Việc chúng mình trở nên thân thiết, việc chúng mình có một nhóm 5 người chơi với nhau tất cả đều nằm ngoài dự tính, suy nghĩ của Ngân và cả bây giờ nữa, Ngân sẽ không bao giờ nghĩ mình hoài niệm và nhớ thương deskmate của mình thế nào cho đến khi Ngân phải đến một môi trường mới. Hơn 700 ngày làm bạn cùng bàn của nhau, chúng mình đã có rất nhiều kí ức không thể quên chẳng hạn như được học tiếng Trung cùng Thư dù chẳng hiểu gì cả, xem phim, xem tiktok, quay mấy daily video nhảm nhí. Nhớ những ngày Ngân còn tránh né camera của các bạn, vậy mà sau khoá rèn luyện 2 năm, giờ tôi đã unlock được kĩ năng quay chụp daily, biết nói nhảm trước camera giống Thư nhưng chỉ tiếc là bây giờ mỗi ngày trôi qua đều không có Thư. 
+
+Từ trước đến nay, suốt 12 năm đi học và có lẽ trong cả 4 năm đại học sắp tới, Thư luôn là người bạn cùng bàn lâu dài nhất trong đời Ngân. Vì đã quen với việc cùng Thư đi học qua hai lần của bốn mùa xuân, hạ, thu, đông nên bây giờ lúc nào đi học cũng thấy đôi chút trống vắng. Không còn người để hỏi “Sao sáng nay đi học muộn thế?”, không còn được nghịch ngợm trong giờ học, không còn ai quay timelapse nữa… Nếu như được quay lại, chắc chắn Ngân sẽ tự tin quay chụp luyên thuyên với Thư và mấy đứa nhiều hơn nhưng thời gian đã trôi qua chẳng thể quay lại nên việc Ngân làm chỉ có thể là để cho mối quan hệ tốt đẹp của chúng mình có cơ hội tiếp diễn. Và dù là không thể xuất hiện thường xuyên trong bốn mùa xuân, hạ, thu, đông của nhau nữa nhưng mong rằng nhiều lần của bốn mùa ấy, Ngân vẫn sẽ được nhìn thấy Thư bình an và hạnh phúc thông qua những dòng tin, trạng thái trên mạng xã hội và những cuộc gặp gỡ không thường xuyên.
+
+Cảm ơn Anh Thư vì đã là một phần rất đỗi tuyệt vời trong cuộc đời Trang Ngân! Chuyên Thái Bình là “nhà” và Thư là người “nhà” của Ngân.
+
+        <br><br>
+
+       Sắp tới cũng đến sinh nhật Thư, tiện những dòng thư nên chúc Thư sắp tới tuổi 18 thật mạnh khoẻ (có sức khỏe là có tất cả nhé cô gái, nhớ giữ gìn sức khỏe), mau ăn chóng lớn (lên Hà Nội là tọp đi mấy cân rồi, ăn nhiều vào), đạt nhiều thành tích tốt, GPA đúng như mong muốn, điểm rèn luyện tối đa… Mong cô gái sẽ luôn thật hạnh phúc với những điều mình đã chọn, sẽ luôn tìm thấy được yên bình sau những cơn giông “deadline” của HANU. 
+
+        <br><br>
+
+        ❤️ Trang Ngân
+    </p>
+</div>
+
+<script>
+
+function startMovie(){
+
+    document.getElementById("startScreen").style.display="none";
+    document.getElementById("filmContainer").style.display="block";
+
+    setTimeout(()=>{
+        document.getElementById("filmContainer").style.display="none";
+        document.getElementById("envelopeSection").style.display="flex";
+    },12000);
+
+}
+
+function openLetter(){
+
+    document.getElementById("envelopeSection").style.display="none";
+    document.getElementById("letter").style.display="block";
+    window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth"
+});
+
+    createHearts();
+}
+
+function createHearts(){
+
+    setInterval(()=>{
+
+        const heart=document.createElement("div");
+
+        heart.classList.add("heart");
+        heart.innerHTML="❤️";
+
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.bottom="-20px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },4000);
+
+    },300);
+
+}
+
+</script>
+
+</body>
+</html>
